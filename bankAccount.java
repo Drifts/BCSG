@@ -102,24 +102,24 @@ public class bankAccount {
 			HSBCDate++;
 		}
 			
-		// Print out the bank details in order of date
+		// Print out the bank details in order of date (descending Order)
 		for (int i=0; i<3; i++){
 			
-			if (HSBCDate ==1){
+			if (HSBCDate ==3){
 				System.out.println(bank[0] + "\n" + (cardNumber[1][0]) + "\n" + date1 + "\n");
 				
 			}
-			if (RoyalDate ==1){
+			if (RoyalDate ==3){
 				System.out.println(bank[1] + "\n" + (cardNumber[1][1]) + "\n" + date2 + "\n");
 				
 			}
-			if (AmericanDate ==1){
-				System.out.println(bank[2] + "\n" + (cardNumber[1][2]) + "\n" + date2 + "\n");
+			if (AmericanDate ==3){
+				System.out.println(bank[2] + "\n" + (cardNumber[1][2]) + "\n" + date3 + "\n");
 				
 			}
-			HSBCDate = HSBCDate -1;
-			RoyalDate = RoyalDate -1; //0
-			AmericanDate = AmericanDate -1;
+			HSBCDate = HSBCDate +1;
+			RoyalDate = RoyalDate +1; //0
+			AmericanDate = AmericanDate +1;
 		}
 		
 		//Alternatively the task could be completed by using objects.
