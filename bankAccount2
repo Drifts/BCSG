@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class bankAccount2 {
+
+	private String bankName;
+	private String cardNO; 
+
+	public bankAccount2(String bankName, String cardNO){
+		
+		this.bankName= bankName;
+		this.cardNO = cardNO;
+		
+	}
+	
+	@Override public String toString() {
+
+		return bankName + "	" + cardNO;
+  }
+
+
+  
+	public static void main (String[]args){
+			
+		bankAccount2 a = bankAccount2("HSBC", "92138198273");
+		bankAccount2 b = bankAccount2("HSBC", "92138198273");
+		System.out.println(a);
+		System.out.println(b);
+	}
+
+			
+}
