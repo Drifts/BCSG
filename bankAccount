@@ -1,0 +1,86 @@
+
+/**
+ *
+ * @author David Craig
+ */
+
+import java.util.*;
+import java.text.*;
+import java.text.ParseException;
+import java.util.Collections;
+
+public abstract class bankAccount implements Comparable<bankAccount> {
+
+    private String bankName;
+    String cardNum;
+    private String date;
+
+    //getters
+    public String getBankName() {
+        return bankName;
+    }
+
+    public String getCardNum() {
+        return cardNum;
+    }
+
+    public String getDate() {
+        return date;
+    }
+//setters 
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
+    public void setCardNum(String cardNum) {
+        this.cardNum = cardNum;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public bankAccount(String bankName, String cardNum, String date) {
+        this.bankName = bankName;
+        this.cardNum = cardNum;
+        this.date = date;
+
+    }
+
+    public String toString() {
+        return "\n" + bankName + "\n" + cardNum + "\n" + date;
+    }
+
+    public int compareTo(bankAccount bankacc1, bankAccount bankacc2) {
+        return bankacc1.date.compareTo(bankacc2.date);
+    }
+
+    abstract String maskAccount();
+
+    //Main---------------------------
+    public static void main(String args[]) throws ParseException {
+
+        hsbc hsbc = new hsbc("HSBC Canada", "5601-2345-3446-5678", "01-11-2017");
+        royal royal = new royal("Royal Bank of Canada", "4519-4532-4524-2456", "01-10-2017");
+        american american = new american("American Express", "3786-7334-8965-345", "01-12-2011");
+
+        hsbc.maskAccount();
+        royal.maskAccount();
+        american.maskAccount();
+
+        List<bankAccount> myList = new ArrayList<bankAccount>();
+
+        myList.add(hsbc);
+        myList.add(royal);
+        myList.add(american);
+
+        Collections.sort(myList);
+        //Collections.reverse(myList);
+        for (int i = 0; i < myList.size(); i++) {
+            System.out.println(myList.get(i).bankName);
+            System.out.println(myList.get(i).date);
+            System.out.println(myList.get(i).maskAccount());
+        }
+    }
+}
